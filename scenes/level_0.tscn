@@ -1,0 +1,79 @@
+[gd_scene format=4 uid="uid://bk6ikwgomwoei"]
+
+[ext_resource type="Texture2D" uid="uid://ddhb78fmnbbuo" path="res://assets/sprites/tiles/floor-tiles.png" id="1_7wnc2"]
+[ext_resource type="PackedScene" uid="uid://dd1ac0brboqpt" path="res://scenes/player.tscn" id="2_5uqbp"]
+[ext_resource type="Texture2D" uid="uid://bd01f64h5tf16" path="res://assets/sprites/tiles/wall-tiles.png" id="2_rerym"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5uqbp"]
+texture = ExtResource("1_7wnc2")
+texture_region_size = Vector2i(108, 108)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_l14r6"]
+tile_size = Vector2i(108, 108)
+sources/1 = SubResource("TileSetAtlasSource_5uqbp")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uijja"]
+texture = ExtResource("2_rerym")
+texture_region_size = Vector2i(108, 108)
+0:0/0 = 0
+0:0/0/y_sort_origin = 54
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-54, -54, 0, -54, 0, 13.5, 54, 13.5, 54, 54, -54, 54)
+1:0/0 = 0
+1:0/0/y_sort_origin = 54
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-54, 13.5, 0, 13.5, 0, -54, 54, -54, 54, 54, -54, 54)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-54, -54, 54, -54, 54, 54, -54, 54)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-54, -54, 54, -54, 54, 54, -54, 54)
+0:1/0 = 0
+0:1/0/y_sort_origin = 54
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-54, 13.5, 54, 13.5, 54, 54, -54, 54)
+1:1/0 = 0
+1:1/0/y_sort_origin = 54
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-54, -54, 0, -54, 0, 54, -54, 54)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-54, -54, 54, -54, 54, 54, -54, 54)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-54, -54, 54, -54, 54, 13.5, -54, 13.5)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-54, -54, 54, -54, 54, 54, 0, 54, 0, 13.5, -54, 13.5)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-54, -54, 54, -54, 54, 13.5, 0, 13.5, 0, 54, -54, 54)
+
+[sub_resource type="TileSet" id="TileSet_x3tdf"]
+tile_size = Vector2i(108, 108)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_uijja")
+
+[node name="Level_0" type="Node2D" unique_id=1396131859]
+y_sort_enabled = true
+
+[node name="Void" type="ColorRect" parent="." unique_id=1807654730]
+z_index = -2
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 1380.0
+offset_bottom = 820.0
+color = Color(0.08235294, 0.08235294, 0.08235294, 1)
+
+[node name="Floor" type="TileMapLayer" parent="." unique_id=222600695]
+z_index = -1
+texture_filter = 1
+position = Vector2(262, -18)
+tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAABAAEAAQAAAAAAAAACAAIAAQAAAAAAAAADAAMAAQAAAAAAAAAEAAQAAQAAAAAAAAABAAAAAQABAAAAAAACAAEAAQABAAAAAAADAAIAAQABAAAAAAAEAAMAAQABAAAAAAAFAAQAAQABAAAAAAACAAAAAQACAAAAAAADAAEAAQACAAAAAAAEAAIAAQACAAAAAAAFAAMAAQACAAAAAAAGAAQAAQACAAAAAAADAAAAAQADAAAAAAAEAAEAAQADAAAAAAAFAAIAAQADAAAAAAAGAAMAAQADAAAAAAAEAAAAAQAEAAAAAAAFAAEAAQAEAAAAAAAGAAIAAQAEAAAAAAAAAAEAAQAEAAAAAAABAAIAAQAEAAAAAAACAAMAAQAEAAAAAAADAAQAAQAEAAAAAAAAAAIAAQADAAAAAAABAAMAAQADAAAAAAACAAQAAQADAAAAAAAAAAMAAQACAAAAAAABAAQAAQACAAAAAAAAAAQAAQABAAAAAAAFAAAAAQAAAAAAAAAGAAEAAQAAAAAAAAAGAAAAAQABAAAAAAAAAAUAAQAAAAAAAAABAAUAAQABAAAAAAACAAUAAQACAAAAAAADAAUAAQADAAAAAAAEAAUAAQAEAAAAAAAFAAUAAQAAAAAAAAAGAAUAAQABAAAAAAAAAAYAAQABAAAAAAABAAYAAQACAAAAAAACAAYAAQADAAAAAAADAAYAAQAEAAAAAAAEAAYAAQAAAAAAAAAFAAYAAQABAAAAAAAGAAYAAQACAAAAAAA=")
+tile_set = SubResource("TileSet_l14r6")
+
+[node name="Wall" type="TileMapLayer" parent="." unique_id=182507626]
+y_sort_enabled = true
+position = Vector2(262, -18)
+tile_map_data = PackedByteArray("AAAAAAAAAAACAAAAAAAGAAAAAAADAAAAAAAAAAEAAAAEAAAAAAAAAAIAAAABAAEAAAAAAAQAAAABAAEAAAAGAAEAAAAEAAEAAAAGAAIAAAABAAEAADAGAAMAAAABAAEAADAGAAQAAAABAAEAADABAAAAAAACAAEAAAACAAAAAAACAAEAAAADAAAAAAACAAEAAAAEAAAAAAACAAEAAAAFAAAAAAACAAEAAAAFAAEAAAADAAEAAAAEAAEAAAADAAEAAAADAAEAAAADAAEAAAACAAEAAAADAAEAAAABAAEAAAADAAEAAAAAAAUAAAABAAEAAAAGAAUAAAABAAEAADAAAAYAAAAAAAAAAAAGAAYAAAABAAAAAAABAAYAAAAAAAEAAAACAAYAAAAAAAEAAAADAAYAAAAAAAEAAAAEAAYAAAAAAAEAAAAFAAYAAAAAAAEAAAA=")
+tile_set = SubResource("TileSet_x3tdf")
+
+[node name="Player" parent="." unique_id=64290495 instance=ExtResource("2_5uqbp")]
+y_sort_enabled = true
+position = Vector2(860, 360)
